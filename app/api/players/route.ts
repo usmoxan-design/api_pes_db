@@ -54,7 +54,8 @@ export async function GET(request: Request) {
           nationality: nationality || 'Unknown',
           position,
           ovr,
-          imageUrl: `https://pesdb.net/efootball/images/players/${id}.png`
+          imageUrl: `https://pesdb.net/assets/img/card/f${id}.png`
+          
         });
       }
     });

@@ -41,7 +41,7 @@ export default function PlayersPage() {
   const getPaginationItems = () => {
     const items: (number | string)[] = [];
     const showPages = 2;
-    
+
     if (totalPages <= showPages * 2 + 3) {
       for (let i = 1; i <= totalPages; i++) {
         items.push(i);
@@ -69,7 +69,7 @@ export default function PlayersPage() {
         items.push(totalPages);
       }
     }
-    
+
     return items;
   };
 
@@ -147,20 +147,19 @@ export default function PlayersPage() {
                 >
                   <ChevronLeft size={18} /> Previous
                 </button>
-                
+
                 <div className="flex items-center gap-1">
                   {getPaginationItems().map((item, index) => (
                     <button
                       key={index}
                       onClick={() => typeof item === 'number' && setCurrentPage(item)}
                       disabled={item === '...'}
-                      className={`min-w-[44px] h-11 rounded-xl font-medium transition-all ${
-                        item === currentPage
+                      className={`min-w-[44px] h-11 rounded-xl font-medium transition-all ${item === currentPage
                           ? 'bg-cyan-500 text-white'
                           : item === '...'
-                          ? 'cursor-default text-white/40'
-                          : 'bg-white/5 hover:bg-white/10'
-                      }`}
+                            ? 'cursor-default text-white/40'
+                            : 'bg-white/5 hover:bg-white/10'
+                        }`}
                     >
                       {item}
                     </button>
@@ -188,11 +187,12 @@ export default function PlayersPage() {
                     key={player.id}
                     className="group p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-500/30 transition-all"
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-start gap-4">
                       <img
                         src={player.imageUrl}
                         alt={player.name}
-                        className="w-20 h-20 rounded-2xl object-cover bg-white/10 shadow-lg group-hover:scale-105 transition-transform"
+                        // h-50 ni olib tashladik, h-auto qildik. w-24 (96px) card uchun mosroq bo'lishi mumkin.
+                        className="w-24 h-auto object-contain group-hover:scale-105 transition-transform"
                         onError={(e) => {
                           (e.target as HTMLImageElement).style.display = 'none';
                         }}
