@@ -9,17 +9,17 @@ interface FooterProps {
 
 export default function Footer({ t }: FooterProps) {
   return (
-    <footer className="py-20 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center">
-            <Database className="text-white/40" size={16} />
+    <footer className="py-12 sm:py-20 border-t border-white/5 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/5 rounded-lg flex items-center justify-center">
+            <Database className="text-white/40" size={14} />
           </div>
-          <span className="text-sm font-bold text-white/40 tracking-tight">
+          <span className="text-xs sm:text-sm font-bold text-white/40 tracking-tight">
             {t.footer}
           </span>
         </div>
-        <div className="flex gap-8 text-sm text-white/40 font-medium">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-white/40 font-medium">
           <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-white transition-colors">Documentation</a>
           <a
@@ -27,7 +27,7 @@ export default function Footer({ t }: FooterProps) {
             target="_blank"
             className="flex items-center gap-1 hover:text-white transition-colors"
           >
-            <Github size={14} /> Source
+            <Github size={12} /> Source
           </a>
         </div>
       </div>
