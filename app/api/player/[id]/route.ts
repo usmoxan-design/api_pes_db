@@ -34,39 +34,39 @@ export async function GET(
       if (th.length && td.length) {
         const key = th.text().trim();
         const value = td.text().trim();
-        
+
         if (key.toLowerCase().includes('player skill')) {
-            td.find('br').replaceWith('\n');
-            const skillList = td.text().split('\n').map(s => s.trim()).filter(s => s.length > 0);
-            skills.push(...skillList);
-        } else if (RegExp(/\d/).hasMatch(value)) {
-            stats[key] = value;
+          td.find('br').replaceWith('\n');
+          const skillList = td.text().split('\n').map(s => s.trim()).filter(s => s.length > 0);
+          skills.push(...skillList);
+        } else if (/\d/.test(value)) {
+          stats[key] = value;
         } else {
-            info[key] = value;
+          info[key] = value;
         }
       }
     });
 
     // Suggested points
     $('div').each((i, el) => {
-        const text = $(el).text().trim();
-        if (text.startsWith('Suggested points')) {
-            $(el).siblings('div').each((j, sEl) => {
-                const parts = $(sEl).text().split(':');
-                if (parts.length === 2) {
-                    const k = parts[0].replace(/[•\u2022]/, '').trim();
-                    const v = parseInt(parts[1].trim());
-                    if (!isNaN(v)) suggestedPoints[k] = v;
-                }
-            });
-        }
+      const text = $(el).text().trim();
+      if (text.startsWith('Suggested points')) {
+        $(el).siblings('div').each((j, sEl) => {
+          const parts = $(sEl).text().split(':');
+          if (parts.length === 2) {
+            const k = parts[0].replace(/[•\u2022]/, '').trim();
+            const v = parseInt(parts[1].trim());
+            if (!isNaN(v)) suggestedPoints[k] = v;
+          }
+        });
+      }
     });
 
     return NextResponse.json({
-        stats,
-        info,
-        skills,
-        suggestedPoints
+      stats,
+      info,
+      skills,
+      suggestedPoints
     });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
