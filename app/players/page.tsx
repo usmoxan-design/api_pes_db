@@ -18,7 +18,7 @@ export default function PlayersPage() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(585); // Total pages available
+  const [totalPages, setTotalPages] = useState(585);
   const itemsPerPage = 20;
 
   useEffect(() => {
@@ -38,7 +38,6 @@ export default function PlayersPage() {
     }
   };
 
-  // Generate pagination items
   const getPaginationItems = () => {
     const items: (number | string)[] = [];
     const showPages = 2;
@@ -76,7 +75,6 @@ export default function PlayersPage() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-cyan-500/30 font-sans">
-      {/* Background Glow */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500/10 blur-[120px] rounded-full"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 blur-[120px] rounded-full"></div>
@@ -108,11 +106,31 @@ export default function PlayersPage() {
         <section className="pt-16 pb-8 px-6">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-              All <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Players</span>
+              All <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">eFootball Players</span>
             </h1>
             <p className="text-white/60 text-lg">
-              Page {currentPage} of {totalPages}
+              Page {currentPage} of {totalPages} - {totalPages * itemsPerPage}+ players available
             </p>
+          </div>
+        </section>
+
+        {/* SEO Stats */}
+        <section className="py-8 px-6 border-t border-white/5">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-4 text-sm text-white/60">
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                <div className="text-2xl font-bold text-cyan-400 mb-1">{totalPages * itemsPerPage}+</div>
+                <div className="text-xs">Total Players</div>
+              </div>
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                <div className="text-2xl font-bold text-blue-400 mb-1">585</div>
+                <div className="text-xs">Pages</div>
+              </div>
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                <div className="text-2xl font-bold text-purple-400 mb-1">Real-time</div>
+                <div className="text-xs">Updates</div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -205,7 +223,7 @@ export default function PlayersPage() {
 
         {/* Footer */}
         <footer className="py-20 border-t border-white/5 mt-20">
-          <div className="max-w-7xl mx-auto px-6 flex flex-col md:row items-center justify-between gap-8">
+          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center">
                 <Database className="text-white/40" size={16} />

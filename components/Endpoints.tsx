@@ -33,7 +33,7 @@ export default function Endpoints({ t }: EndpointsProps) {
             </div>
             <p className="text-white/50 text-sm mb-4">{t.description}: {t.categories}</p>
             <div className="bg-black/50 rounded-xl p-4 overflow-x-auto">
-              <pre className="text-xs text-white/70 font-mono">
+              <pre className="text-xs text-white/70 font-mono" suppressHydrationWarning>
 {`{
   "name": "Top Players",
   "url": "https://pesdb.net/efootball/?category=top"
@@ -58,7 +58,7 @@ export default function Endpoints({ t }: EndpointsProps) {
               <span className="px-2 py-1 bg-white/10 rounded text-xs">?url=category_url</span>
             </div>
             <div className="bg-black/50 rounded-xl p-4 overflow-x-auto">
-              <pre className="text-xs text-white/70 font-mono">
+              <pre className="text-xs text-white/70 font-mono" suppressHydrationWarning>
 {`{
   "id": "133543",
   "name": "Erling Haaland",
@@ -84,7 +84,7 @@ export default function Endpoints({ t }: EndpointsProps) {
             </div>
             <p className="text-white/50 text-sm mb-4">{t.description}: {t.players} ID {t.loading.toLowerCase()}</p>
             <div className="bg-black/50 rounded-xl p-4 overflow-x-auto">
-              <pre className="text-xs text-white/70 font-mono">
+              <pre className="text-xs text-white/70 font-mono" suppressHydrationWarning>
 {`{
   "id": "133543",
   "name": "Erling Haaland",
